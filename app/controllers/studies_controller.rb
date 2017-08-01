@@ -1,10 +1,12 @@
 class StudiesController < ApplicationController
+  before_action :set_study, only: [:show, :edit, :update, :destroy]
+
   def index
     @studies = Study.all
   end
 
   def show
-    @study = Study.find(params[:id])
+
   end
 
   def new
@@ -21,11 +23,10 @@ class StudiesController < ApplicationController
   end
 
   def edit
-    @study = Study.find(params[:id])
+
   end
 
   def update
-    @study = Study.find(params[:id])
     @study.update(study_params)
      # Will raise ActiveModel::ForbiddenAttributesError. Use method study_params to allow user access
 
@@ -34,7 +35,6 @@ class StudiesController < ApplicationController
   end
 
   def destroy
-    @study = Study.find(params[:id])
     @study.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
@@ -47,4 +47,7 @@ class StudiesController < ApplicationController
     params.require(:study).permit(:title, :description, :recruiting)
   end
 
+  def set_study
+    @study = Study.find(params[:id])
+  end
 end
