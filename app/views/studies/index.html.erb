@@ -1,0 +1,11 @@
+<h1>Studies#index</h1>
+<hr>
+<hr>
+
+<!-- app/views/studies/index.html.erb -->
+<% @studies.each do |study| %>
+  <h2><%= link_to study.title, study_path(study) %></h2>
+  <p>description: <%= study.description %></p>
+  <p>on recruiting stage? <%= study.recruiting %></p>
+  <hr>
+<% end %>

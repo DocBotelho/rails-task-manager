@@ -1,0 +1,14 @@
+<h1>Studies#show</h1>
+<hr>
+<hr>
+<h2><%= @study.title %></h2>
+<p>description: <%= @study.description %></p>
+<p>on recruiting stage? <%= @study.recruiting %></p>
+<hr>
+
+<%= link_to "All Studies", studies_path %>
+<%= link_to "New", new_study_path %>
+<%= link_to "Update", edit_study_path %>
+<%= link_to "Delete", study_path(@study),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
